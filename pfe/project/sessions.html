@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الجلسات المحجوزة - نطقنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/session.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="../images/logo.png" alt="نطقنا">
+    </div>
+    
+    <ul class="nav-main">
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="#courses"><i class="fas fa-dumbbell"></i> دورات</a></li>
+      <li><a href="#exercises"><i class="fas fa-book-open"></i> تمارين</a></li>
+    </ul>
+    
+    <div class="profile" onclick="toggleSidebar()">
+      <img src="specialist.jpg" alt="الأخصائي">
+      <span>د. أحمد محمد<i class="fas fa-chevron-down toggle-sidebar"></i></span>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="specialist.jpg" alt="الأخصائي">
+      <div>
+        <h3 style="margin:0">د. أحمد محمد</h3>
+        <p style="margin:5px 0 0; color:#666">أخصائي نطق وتخاطب</p>
+      </div>
+    </div>
+    
+    <ul class="sidebar-menu">
+      <li><a href="profile.html"><i class="fas fa-user"></i> ملف شخصي</a></li>
+      <li><a href="createmyprofile.html"><i class="fas fa-file-alt"></i> إنشاء ملفي</a></li>
+      <li><a href="old-files.html"><i class="fas fa-child"></i> ملفات الطفل القديمة</a></li>
+      <li><a href="reponse.html"><i class="fas fa-comment-medical"></i> الرد على الاستشارات</a></li>
+      <li><a href="sessions.html"><i class="fas fa-calendar-check"></i> جلسات المحجوزة</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+    </ul>
+  </div>
+
+  <div class="container" id="main">
+    <div class="page-header">
+      <h1><i class="fas fa-calendar-check"></i> الجلسات المحجوزة</h1>
+    </div>
+    
+    <div class="session-tabs">
+      <button class="tab-btn active">الكل</button>
+      <button class="tab-btn">اليوم</button>
+      <button class="tab-btn">الأسبوع</button>
+      <button class="tab-btn">القادمة</button>
+    </div>
+    
+    <div class="sessions-container">
+      <!-- Session 1 -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-patient">
+            <div class="patient-avatar">م</div>
+            <div class="patient-info">
+              <h3>محمد علي</h3>
+              <p>5 سنوات | تأتأة</p>
+            </div>
+          </div>
+          <div class="session-time">
+            <div class="session-date">الأحد 15 يونيو - 10:00 ص</div>
+            <div class="session-duration">45 دقيقة (جلسة فردية)</div>
+          </div>
+        </div>
+        
+        <div class="session-details">
+          <div class="detail-row">
+            <span class="detail-label">اسم ولي الأمر:</span>
+            <span class="detail-value">أحمد محمد</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-label">رقم الهاتف:</span>
+            <span class="detail-value">+966 55 987 6543</span>
+          </div>
+          
+          <div class="parent-feedback">
+            <div class="feedback-label">
+              <i class="fas fa-comment-dots"></i> ملاحظات ولي الأمر:
+            </div>
+            <div class="feedback-content">
+              "ابني لديه مشكلة في نطق حرف الراء، ويخلط بينه وبين حرف الغين. حاولنا معه في المنزل ولكن دون تحسن ملحوظ. نلاحظ أيضًا أنه يتجنب الكلمات التي تحتوي على هذا الحرف."
+            </div>
+          </div>
+        </div>
+        
+        <div class="session-actions">
+          <button class="action-btn btn-accept" onclick="openFeedbackModal()">
+            <i class="fas fa-check-circle"></i> قبول
+          </button>
+          <button class="action-btn btn-cancel" onclick="openCancelModal()">
+            <i class="fas fa-times"></i> إلغاء
+          </button>
+        </div>
+      </div>
+      
+      <!-- Session 2 -->
+      <div class="session-card">
+        <div class="session-header">
+          <div class="session-patient">
+            <div class="patient-avatar">س</div>
+            <div class="patient-info">
+              <h3>سارة أحمد</h3>
+              <p>6 سنوات | صعوبات نطق</p>
+            </div>
+          </div>
+          <div class="session-time">
+            <div class="session-date">الاثنين 16 يونيو - 2:00 م</div>
+            <div class="session-duration">60 دقيقة (جلسة تقييم)</div>
+          </div>
+        </div>
+        
+        <div class="parent-feedback">
+          <div class="feedback-label">
+            <i class="fas fa-comment-dots"></i> ملاحظات ولي الأمر:
+          </div>
+          <div class="feedback-content">
+            "ابنتي تبلغ من العمر 4 سنوات ولا تنطق بعض الحروف مثل السين والصاد. لاحظنا أيضًا أنها تتحدث بجمل قصيرة جدًا مقارنة بأقرانها. نريد معرفة إذا كان هذا طبيعيًا في هذا العمر أم يحتاج لتدخل مختص."
+          </div>
+        </div>
+      </div>
+        </div>
+        
+        <div class="session-actions">
+          <button class="action-btn btn-accept" onclick="openFeedbackModal()">
+            <i class="fas fa-check-circle"></i> قبول
+          </button>
+          <button class="action-btn btn-cancel" onclick="openCancelModal()">
+            <i class="fas fa-times"></i> إلغاء
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feedback Modal -->
+  <div class="modal" id="feedbackModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-comment-medical"></i>تفاصيل الجلسة</h2>
+        <button class="close-btn" onclick="closeFeedbackModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="feedback-form">
+          <label for="feedbackMessage">رابط الجلسة</label>
+          <textarea id="feedbackMessage" placeholder="اكتب   رابط الجلسة"></textarea>
+          
+          <div class="form-group">
+            <label for="nextSession">مقترح تغيير موعد الجلسة</label>
+            <input type="date" id="nextSession" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="nextSession">مقترح تغيير وقت الجلسة</label>
+            <input type="time" id="nextSession" class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="modal-actions">
+        <button class="action-btn btn-cancel" onclick="closeFeedbackModal()">
+          <i class="fas fa-times"></i> إلغاء
+        </button>
+        <button class="action-btn btn-accept" onclick="sendFeedback()">
+          <i class="fas fa-paper-plane"></i> إرسال التقييم
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cancel Confirmation Modal -->
+  <div class="modal" id="cancelModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-exclamation-triangle"></i> تأكيد الإلغاء</h2>
+        <button class="close-btn" onclick="closeCancelModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>هل أنت متأكد من إلغاء هذه الجلسة؟ هذا الإجراء لا يمكن التراجع عنه.</p>
+      </div>
+      <div class="modal-actions">
+        <button class="action-btn btn-accept" onclick="closeCancelModal()">
+          <i class="fas fa-arrow-left"></i> تراجع
+        </button>
+        <button class="action-btn btn-cancel" onclick="confirmCancel()">
+          <i class="fas fa-check"></i> نعم، ألغِ الجلسة
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../script/session.js"></script>
+</body>
+</html>

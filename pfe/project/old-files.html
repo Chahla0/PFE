@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ملفات الطفل القديمة - نطقنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/old-files.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="نطقنا">
+    </div>
+    
+    <ul class="nav-main">
+      <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="#courses"><i class="fas fa-dumbbell"></i> دورات</a></li>
+      <li><a href="#exercises"><i class="fas fa-book-open"></i> تمارين</a></li>
+    </ul>
+    
+    <div class="profile" onclick="toggleSidebar()">
+      <img src="images/specialist.jpg" alt="الأخصائي">
+      <span>د. أحمد محمد<i class="fas fa-chevron-down toggle-sidebar"></i></span>
+    </div>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="images/specialist.jpg" alt="الأخصائي">
+      <div>
+        <h3 style="margin:0">د. أحمد محمد</h3>
+        <p style="margin:5px 0 0; color:#666">أخصائي نطق وتخاطب</p>
+      </div>
+    </div>
+    
+    <ul class="sidebar-menu">
+      <li><a href="profile.html"><i class="fas fa-user"></i> ملف شخصي</a></li>
+      <li><a href="createmyprofile.html"><i class="fas fa-file-alt"></i> إنشاء ملفي</a></li>
+      <li><a href="old-files.html" class="active"><i class="fas fa-child"></i> ملفات الطفل القديمة</a></li>
+      <li><a href="reponse.html"><i class="fas fa-comment-medical"></i> الرد على الاستشارات</a></li>
+      <li><a href="sessions.html"><i class="fas fa-calendar-check"></i> جلسات المحجوزة</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+    </ul>
+  </div>
+
+  <div class="container" id="main">
+    <div class="card">
+      <div class="page-header">
+        <h1><i class="fas fa-child"></i> ملفات الطفل القديمة</h1>
+      </div>
+      
+      <div class="search-container">
+        <input type="text" class="search-input" placeholder="ابحث عن طفل بالاسم أو الرقم...">
+        <button class="btn btn-primary"><i class="fas fa-search"></i> بحث</button>
+      </div>
+      
+      <div class="children-list">
+        <!-- Child Card 1 -->
+        <div class="child-card" data-id="1245">
+          <div class="child-avatar">س</div>
+          <div class="child-info">
+            <h3 class="child-name">سارة محمد</h3>
+            <div class="child-details">
+              <span><i class="fas fa-id-card"></i> رقم الملف: 1245</span>
+              <span><i class="fas fa-birthday-cake"></i> العمر: 8 سنوات</span>
+              <span><i class="fas fa-calendar-alt"></i> آخر جلسة: 15/03/2023</span>
+            </div>
+          </div>
+          <div class="child-actions">
+            <button class="action-btn view-btn" title="عرض الملف"><i class="fas fa-eye"></i></button>
+            <button class="action-btn delete-btn" title="حذف الملف"><i class="fas fa-trash"></i></button>
+          </div>
+        </div>
+        
+        <!-- Child Card 2 -->
+        <div class="child-card" data-id="1246">
+          <div class="child-avatar">ي</div>
+          <div class="child-info">
+            <h3 class="child-name">يوسف أحمد</h3>
+            <div class="child-details">
+              <span><i class="fas fa-id-card"></i> رقم الملف: 1246</span>
+              <span><i class="fas fa-birthday-cake"></i> العمر: 6 سنوات</span>
+              <span><i class="fas fa-calendar-alt"></i> آخر جلسة: 22/02/2023</span>
+            </div>
+          </div>
+          <div class="child-actions">
+            <button class="action-btn view-btn" title="عرض الملف"><i class="fas fa-eye"></i></button>
+            <button class="action-btn delete-btn" title="حذف الملف"><i class="fas fa-trash"></i></button>
+          </div>
+        </div>
+        
+        <!-- Child Card 3 - This is the one we'll show details for -->
+        <div class="child-card" data-id="1247">
+          <div class="child-avatar">م</div>
+          <div class="child-info">
+            <h3 class="child-name">محمد علي عبد الرحمن</h3>
+            <div class="child-details">
+              <span><i class="fas fa-id-card"></i> رقم الملف: 1247</span>
+              <span><i class="fas fa-birthday-cake"></i> العمر: 5 سنوات</span>
+              <span><i class="fas fa-calendar-alt"></i> آخر جلسة: 10/01/2023</span>
+            </div>
+          </div>
+          <div class="child-actions">
+            <button class="action-btn view-btn" title="عرض الملف"><i class="fas fa-eye"></i></button>
+            <button class="action-btn delete-btn" title="حذف الملف"><i class="fas fa-trash"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Child Details Modal -->
+  <div class="modal" id="childModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-child"></i> تفاصيل ملف الطفل</h2>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="child-details-list">
+        <div class="detail-item">
+          <span class="detail-label">الاسم الكامل:</span>
+          <div class="detail-value">محمد علي عبد الرحمن</div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">تاريخ الميلاد:</span>
+          <div class="detail-value">15/08/2017 (5 سنوات)</div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">الجنس:</span>
+          <div class="detail-value">ذكر</div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">اسم ولي الأمر:</span>
+          <div class="detail-value">علي عبد الرحمن</div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">رقم الهاتف:</span>
+          <div class="detail-value">+966 50 123 4567</div>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">البريد الإلكتروني:</span>
+          <div class="detail-value">ali@example.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Dialog -->
+  <div class="confirmation-dialog" id="confirmDialog">
+    <div class="dialog-content">
+      <h3><i class="fas fa-exclamation-triangle" style="color: #e74c3c;"></i> تأكيد الحذف</h3>
+      <p>هل أنت متأكد أنك تريد حذف ملف الطفل هذا؟ هذا الإجراء لا يمكن التراجع عنه.</p>
+      <div class="dialog-actions">
+        <button class="btn btn-outline" id="cancelDelete">إلغاء</button>
+        <button class="btn btn-danger" id="confirmDelete">حذف</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../script/old-files.js"></script>
+  
+</body>
+</html>

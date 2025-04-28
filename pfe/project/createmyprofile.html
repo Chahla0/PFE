@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنشاء ملفي - نطقنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/create-profile.css">
+</head>
+<body>
+
+  <!-- شريط التنقل العلوي -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="../images/logo.png" alt="نطقنا">
+    </div>
+    
+    <ul class="nav-main">
+      <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="#courses"><i class="fas fa-dumbbell"></i> دورات</a></li>
+      <li><a href="#exercises"><i class="fas fa-book-open"></i> تمارين</a></li>
+    </ul>
+    
+    <div class="profile" onclick="toggleSidebar()">
+      <img src="specialist.jpg" alt="الأخصائي">
+      <span>د. أحمد محمد<i class="fas fa-chevron-down toggle-sidebar"></i></span>
+    </div>
+  </nav>
+
+  <!-- الشريط الجانبي -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="specialist.jpg" alt="الأخصائي">
+      <div>
+        <h3 style="margin:0">د. أحمد محمد</h3>
+        <p style="margin:5px 0 0; color:#666">أخصائي نطق وتخاطب</p>
+      </div>
+    </div>
+    
+    <ul class="sidebar-menu">
+      <li><a href="profile.html"><i class="fas fa-user"></i> ملف شخصي</a></li>
+      <li><a href="createmyprofile.html" class="active"><i class="fas fa-file-alt"></i> إنشاء ملفي</a></li>
+      <li><a href="old-files.html"><i class="fas fa-child"></i> ملفات الطفل القديمة</a></li>
+      <li><a href="reponse.html"><i class="fas fa-comment-medical"></i> الرد على الاستشارات</a></li>
+      <li><a href="sessions.html"><i class="fas fa-calendar-check"></i> جلسات المحجوزة</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+    </ul>
+  </div>
+
+  <!-- المحتوى الرئيسي -->
+  <div class="container" id="main">
+    <div class="create-profile-card">
+      <div class="page-header">
+        <h1><i class="fas fa-file-alt"></i> إنشاء ملفي</h1>
+      </div>
+      
+      <form id="profileForm">
+        <!-- قسم المعلومات الشخصية -->
+        <div class="form-section">
+          <h3 class="section-title"><i class="fas fa-user-circle"></i> المعلومات الشخصية</h3>
+          <div class="avatar-upload">
+            <div class="avatar-preview" id="avatarPreview">
+              <i class="fas fa-user fa-3x" style="color: #ccc;"></i>
+            </div>
+            <div class="upload-btn">
+              <button type="button" class="btn btn-secondary">
+                <i class="fas fa-upload"></i> رفع صورة
+              </button>
+              <input type="file" id="avatarUpload" accept="image/*">
+            </div>
+          </div>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="fullName">الاسم الكامل</label>
+              <input type="text" id="fullName" required placeholder="ادخل اسمك الكامل">
+            </div>
+            
+            <div class="form-group">
+              <label for="specialization">التخصص</label>
+              <input type="text" id="specialization" required placeholder="أخصائي نطق وتخاطب">
+            </div>
+            
+            <div class="form-group">
+              <label for="email">البريد الإلكتروني</label>
+              <input type="email" id="email" required placeholder="example@example.com">
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">رقم الهاتف</label>
+              <input type="tel" id="phone" required placeholder="05XXXXXXXX">
+            </div>
+            
+            <div class="form-group">
+              <label for="city">المدينة</label>
+              <input type="city" id="city" required placeholder="ادخل المدينة">
+            </div>
+            
+            <div class="form-group">
+              <label for="gender">الجنس</label>
+              <select id="gender" required>
+                <option value="">اختر الجنس</option>
+                <option value="male">ذكر</option>
+                <option value="female">أنثى</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <!-- قسم المعلومات المهنية -->
+        <div class="form-section">
+          <h3 class="section-title"><i class="fas fa-briefcase"></i> المعلومات المهنية</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="qualification">المؤهل العلمي</label>
+              <input type="text" id="qualification" required placeholder="مثال: ماجستير علاج النطق">
+            </div>
+            
+            <div class="form-group">
+              <label for="experience">سنوات الخبرة</label>
+              <input type="number" id="experience" min="0" required placeholder="عدد السنوات">
+            </div>
+            
+            
+          
+          
+          <div class="form-group">
+            <label for="bio">نبذة عنك</label>
+            <textarea id="bio" placeholder="اكتب نبذة مختصرة عن خبراتك ومؤهلاتك"></textarea>
+          </div>
+        </div>
+        
+        <!-- قسم معلومات العيادة -->
+        <div class="form-section">
+          <h3 class="section-title"><i class="fas fa-clinic-medical"></i> معلومات العيادة</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="clinicName">اسم العيادة/المركز</label>
+              <input type="text" id="clinicName" placeholder="اسم العيادة">
+            </div>
+            
+            <div class="form-group">
+              <label for="clinicPhone">هاتف العيادة</label>
+              <input type="tel" id="clinicPhone" placeholder="رقم هاتف العيادة">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="address">عنوان العيادة</label>
+            <textarea id="address" placeholder="ادخل العنوان التفصيلي للعيادة"></textarea>
+          </div>
+        </div>
+        
+        <!-- قسم الجدول الزمني -->
+        <div class="form-section">
+          <h3 class="section-title"><i class="fas fa-calendar-alt"></i> الجدول الزمني</h3>
+          <div class="form-group">
+            <label>أيام العمل</label>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="workDays" value="saturday"> السبت
+              </label>
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="workDays" value="sunday"> الأحد
+              </label>
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="workDays" value="monday"> الاثنين
+              </label>
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="workDays" value="tuesday"> الثلاثاء
+              </label>
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="workDays" value="wednesday"> الأربعاء
+              </label>
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="workDays" value="thursday"> الخميس
+              </label>
+              <label style="display: flex; align-items: center; gap: 5px;">
+                <input type="checkbox" name="workDays" value="friday"> الجمعة
+              </label>
+            </div>
+          </div>
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="startTime">وقت بدء العمل</label>
+              <input type="time" id="startTime">
+            </div>
+            
+            <div class="form-group">
+              <label for="endTime">وقت انتهاء العمل</label>
+              <input type="time" id="endTime">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="sessionDuration">مدة الجلسة (دقائق)</label>
+            <select id="sessionDuration">
+              <option value="30">30 دقيقة</option>
+              <option value="45" selected>45 دقيقة</option>
+              <option value="60">60 دقيقة</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- أزرار الإرسال -->
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">حفط الملف</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="../script/create-profile.js"></script>
+</body>
+</html>

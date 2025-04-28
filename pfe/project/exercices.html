@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تمارين النطق - نطقنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/exercices.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="نطقنا">
+    </div>
+    
+    <ul class="nav-main">
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="#courses"><i class="fas fa-dumbbell"></i> دورات</a></li>
+      <li><a href="#exercises"><i class="fas fa-book-open"></i> تمارين</a></li>
+    </ul>
+    
+    <div class="profile" onclick="toggleSidebar()">
+      <img src="../images/specialist.png" alt="الأخصائي">
+      <span>د. أحمد محمد<i class="fas fa-chevron-down toggle-sidebar"></i></span>
+    </div>
+  </nav>
+
+  <!-- الشريط الجانبي -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../images/specialist.png" alt="الأخصائي">
+      <div>
+        <h3>د. أحمد محمد</h3>
+        <p>أخصائي نطق وتخاطب</p>
+      </div>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="profile.html"><i class="fas fa-user"></i> ملف شخصي</a></li>
+      <li><a href="createmyprofile.html"><i class="fas fa-file-alt"></i> إنشاء ملفي</a></li>
+      <li><a href="old-files.html"><i class="fas fa-child"></i> ملفات الطفل القديمة</a></li>
+      <li><a href="reponse.html"><i class="fas fa-comment-medical"></i> الرد على الاستشارات</a></li>
+      <li><a href="sessions.html"><i class="fas fa-calendar-check"></i> جلسات المحجوزة</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+    </ul>
+  </div>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fas fa-dumbbell"></i> تمارين النطق</h2>
+      <button class="add-btn" id="openModalBtn">
+        <i class="fas fa-plus"></i> إضافة تمرين جديد
+      </button>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filters-container">
+      <div class="filter-group">
+        <label for="specialistFilter">الأخصائي</label>
+        <select id="specialistFilter">
+          <option value="all">جميع الأخصائيين</option>
+          <option value="1">د. أحمد محمد</option>
+          <option value="2">د. سارة عبدالله</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="categoryFilter">التصنيف</label>
+        <select id="categoryFilter">
+          <option value="all">جميع التصنيفات</option>
+          <option value="pronunciation">تمارين النطق</option>
+          <option value="breathing">تمارين التنفس</option>
+          <option value="vocabulary">تمارين المفردات</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="statusFilter">الحالة</label>
+        <select id="statusFilter">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="inactive">غير نشط</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="searchInput">بحث</label>
+        <input type="text" id="searchInput" placeholder="ابحث عن تمرين...">
+      </div>
+    </div>
+
+    <!-- Exercises List -->
+    <div class="exercise-cards" id="exercisesContainer">
+      <!-- Sample Exercise Cards -->
+      <div class="exercise-card">
+        <div class="exercise-card-media">
+          <img src="https://via.placeholder.com/400x200?text=Exercise+Image" alt="Exercise Image">
+          <div class="exercise-card-play">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="exercise-card-body">
+          <h3 class="exercise-card-title">تمرين نطق حرف الراء</h3>
+          <p class="exercise-card-description">تمرين يساعد في تحسين نطق حرف الراء للأطفال الذين يعانون من صعوبة في نطقه بشكل صحيح.</p>
+          <div class="exercise-card-meta">
+            <span>د. أحمد محمد</span>
+            <span class="exercise-card-category">تمارين النطق</span>
+          </div>
+          <div class="exercise-card-actions">
+            <button class="action-btn view">
+              <i class="fas fa-eye"></i> عرض
+            </button>
+            <button class="action-btn edit">
+              <i class="fas fa-edit"></i> تعديل
+            </button>
+            <button class="action-btn delete">
+              <i class="fas fa-trash"></i> حذف
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="exercise-card">
+        <div class="exercise-card-media">
+          <video poster="https://via.placeholder.com/400x200?text=Exercise+Video">
+            <source src="#" type="video/mp4">
+          </video>
+          <div class="exercise-card-play">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="exercise-card-body">
+          <h3 class="exercise-card-title">تمرين التنفس العميق</h3>
+          <p class="exercise-card-description">تمرين لتحسين قدرة الرئة والتحكم في التنفس أثناء الكلام، مناسب للأطفال الذين يتحدثون بسرعة.</p>
+          <div class="exercise-card-meta">
+            <span>د. سارة عبدالله</span>
+            <span class="exercise-card-category">تمارين التنفس</span>
+          </div>
+          <div class="exercise-card-actions">
+            <button class="action-btn view">
+              <i class="fas fa-eye"></i> عرض
+            </button>
+            <button class="action-btn edit">
+              <i class="fas fa-edit"></i> تعديل
+            </button>
+            <button class="action-btn delete">
+              <i class="fas fa-trash"></i> حذف
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="exercise-card">
+        <div class="exercise-card-media">
+          <img src="https://via.placeholder.com/400x200?text=Another+Exercise" alt="Exercise Image">
+          <div class="exercise-card-play">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="exercise-card-body">
+          <h3 class="exercise-card-title">تمرين المفردات اليومية</h3>
+          <p class="exercise-card-description">تمارين لزيادة الحصيلة اللغوية وتعزيز استخدام المفردات الجديدة في الجمل اليومية.</p>
+          <div class="exercise-card-meta">
+            <span>د. أحمد محمد</span>
+            <span class="exercise-card-category">تمارين المفردات</span>
+          </div>
+          <div class="exercise-card-actions">
+            <button class="action-btn view">
+              <i class="fas fa-eye"></i> عرض
+            </button>
+            <button class="action-btn edit">
+              <i class="fas fa-edit"></i> تعديل
+            </button>
+            <button class="action-btn delete">
+              <i class="fas fa-trash"></i> حذف
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Exercise Modal -->
+  <div class="modal" id="exerciseModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fas fa-dumbbell"></i> إضافة تمرين جديد</h3>
+        <button class="close-btn" id="closeModalBtn">&times;</button>
+      </div>
+      
+      <form id="exerciseForm">
+        <div class="form-group">
+          <label for="exerciseTitle">عنوان التمرين *</label>
+          <input type="text" id="exerciseTitle" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="exerciseCategory">تصنيف التمرين *</label>
+          <select id="exerciseCategory" required>
+            <option value="">اختر تصنيفاً</option>
+            <option value="pronunciation">تمارين النطق</option>
+            <option value="breathing">تمارين التنفس</option>
+            <option value="vocabulary">تمارين المفردات</option>
+            <option value="interaction">تمارين التفاعل</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="exerciseDescription">وصف التمرين *</label>
+          <textarea id="exerciseDescription" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="exerciseInstructions">تعليمات التمرين *</label>
+          <textarea id="exerciseInstructions" required placeholder="أدخل خطوات التمرين بالتفصيل"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="exerciseFrequency">التكرار الموصى به</label>
+          <input type="text" id="exerciseFrequency" placeholder="مثال: 3 مرات يومياً">
+        </div>
+        
+        <div class="form-group">
+          <label>مرفقات التمرين *</label>
+          <p style="font-size: 0.9rem; color: #666; margin-bottom: 10px;">يجب رفع فيديو أو صورة توضيحية للتمرين</p>
+          <div class="file-upload" id="mediaUploadArea">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>انقر لرفع فيديو أو صورة للتمرين</p>
+            <p style="font-size: 0.8rem; color: #666;">يمكنك رفع: فيديو (MP4) أو صورة (JPG, PNG)</p>
+            <input type="file" id="mediaInput" style="display: none;" 
+                   accept=".jpg,.jpeg,.png,.mp4">
+          </div>
+          <div id="mediaPreviewContainer"></div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> حفظ التمرين
+          </button>
+          <button type="button" class="btn btn-outline" id="cancelBtn">
+            <i class="fas fa-times"></i> إلغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Exercise Modal -->
+  <div class="modal" id="editExerciseModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fas fa-edit"></i> تعديل التمرين</h3>
+        <button class="close-btn" id="closeEditModalBtn">&times;</button>
+      </div>
+      
+      <form id="editExerciseForm">
+        <input type="hidden" id="editExerciseId">
+        
+        <div class="form-group">
+          <label for="editExerciseTitle">عنوان التمرين *</label>
+          <input type="text" id="editExerciseTitle" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="editExerciseCategory">تصنيف التمرين *</label>
+          <select id="editExerciseCategory" required>
+            <option value="">اختر تصنيفاً</option>
+            <option value="pronunciation">تمارين النطق</option>
+            <option value="breathing">تمارين التنفس</option>
+            <option value="vocabulary">تمارين المفردات</option>
+            <option value="interaction">تمارين التفاعل</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="editExerciseDescription">وصف التمرين *</label>
+          <textarea id="editExerciseDescription" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="editExerciseInstructions">تعليمات التمرين *</label>
+          <textarea id="editExerciseInstructions" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="editExerciseFrequency">التكرار الموصى به</label>
+          <input type="text" id="editExerciseFrequency" placeholder="مثال: 3 مرات يومياً">
+        </div>
+        
+        <div class="form-group">
+          <label>حالة التمرين</label>
+          <select id="editExerciseStatus">
+            <option value="active">نشط</option>
+            <option value="inactive">غير نشط</option>
+          </select>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> حفظ التغييرات
+          </button>
+          <button type="button" class="btn btn-outline" id="cancelEditBtn">
+            <i class="fas fa-times"></i> إلغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="confirmation-modal" id="deleteConfirmationModal">
+    <div class="confirmation-content">
+      <h3><i class="fas fa-exclamation-triangle"></i> تأكيد الحذف</h3>
+      <p>هل أنت متأكد أنك تريد حذف هذا التمرين؟ لا يمكن التراجع عن هذه العملية.</p>
+      <div class="confirmation-buttons">
+        <button class="btn btn-primary" id="confirmDeleteBtn">نعم، احذف</button>
+        <button class="btn btn-outline" id="cancelDeleteBtn">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exercise Details Modal -->
+  <div class="exercise-details-modal" id="exerciseDetailsModal">
+    <div class="exercise-details-content">
+      <button class="close-details-btn" id="closeDetailsBtn">&times;</button>
+      
+      <div class="exercise-details-header">
+        <h2 class="exercise-details-title" id="detailsExerciseTitle">تمرين نطق حرف الراء</h2>
+        <div class="exercise-details-meta">
+          <span id="detailsExerciseSpecialist">د. أحمد محمد</span>
+          <span id="detailsExerciseCategory">تمارين النطق</span>
+        </div>
+      </div>
+      
+      <div class="exercise-media-container" id="exerciseMediaContainer">
+        <img src="https://via.placeholder.com/800x400?text=Exercise+Details" alt="Exercise Image">
+      </div>
+      
+      <div class="exercise-description">
+        <h3 class="instructions-title">وصف التمرين</h3>
+        <p class="instructions-content" id="detailsExerciseDescription">تمرين يساعد في تحسين نطق حرف الراء للأطفال الذين يعانون من صعوبة في نطقه بشكل صحيح. هذا التمرين مصمم خصيصاً للأطفال الذين يستبدلون حرف الراء بحرف الواو أو الغين.</p>
+      </div>
+      
+      <div class="exercise-instructions">
+        <h3 class="instructions-title">تعليمات التمرين</h3>
+        <p class="instructions-content" id="detailsExerciseInstructions">
+          1. اجلس مع الطفل في مكان هادئ.<br>
+          2. اطلب من الطفل أن يفتح فمه قليلاً مع رفع طرف اللسان إلى سقف الحلق.<br>
+          3. شجع الطفل على إصدار صوت "ررر" مع الحفاظ على وضعية اللسان.<br>
+          4. كرر التمرين 5 مرات مع أخذ استراحة بين كل مرة.<br>
+          5. استخدم المرآة لمساعدة الطفل على رؤية وضعية لسانه.<br>
+          6. ابدأ بكلمات بسيطة تحتوي على حرف الراء مثل "رأس"، "رمان".<br>
+          7. كافئ الطفل عند تحسن نطقه.
+        </p>
+      </div>
+      
+      <div class="exercise-frequency" id="detailsExerciseFrequency">
+        <strong>التكرار الموصى به:</strong> 3 مرات يومياً، لمدة 10 دقائق في كل مرة
+      </div>
+    </div>
+  </div>
+
+  <script src="../script/exercices.js"></script>
+</body>
+</html>

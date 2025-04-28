@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ملف شخصي - نطقنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="نطقنا">
+    </div>
+    
+    <ul class="nav-main">
+      <li><a href="index.html"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="#courses"><i class="fas fa-dumbbell"></i> دورات</a></li>
+      <li><a href="#exercises"><i class="fas fa-book-open"></i> تمارين</a></li>
+    </ul>
+    
+    <div class="profile" onclick="toggleSidebar()">
+      <img src="images/specialist.jpg" alt="الأخصائي">
+      <span>د. أحمد محمد<i class="fas fa-chevron-down toggle-sidebar"></i></span>
+    </div>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="images/specialist.jpg" alt="الأخصائي">
+      <div>
+        <h3 style="margin:0">د. أحمد محمد</h3>
+        <p style="margin:5px 0 0; color:#666">أخصائي نطق وتخاطب</p>
+      </div>
+    </div>
+    
+    <ul class="sidebar-menu">
+      <li><a href="profile.html" class="active"><i class="fas fa-user"></i> ملف شخصي</a></li>
+      <li><a href="createmyprofile.html"><i class="fas fa-file-alt"></i> إنشاء ملفي</a></li>
+      <li><a href="old-files.html"><i class="fas fa-child"></i> ملفات الطفل القديمة</a></li>
+      <li><a href="reponse.html"><i class="fas fa-comment-medical"></i> الرد على الاستشارات</a></li>
+      <li><a href="sessions.html"><i class="fas fa-calendar-check"></i> جلسات المحجوزة</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <!-- Personal Profile Section -->
+    <div class="section-container">
+      <h2 class="section-title"><i class="fas fa-user-md"></i> الملف الشخصي</h2>
+      
+      <div class="profile-view">
+        <div class="profile-header" id="profileHeader">
+          <div class="profile-image">
+            <img src="specialist.jpg" alt="صورة الأخصائي">
+            <button class="edit-btn" onclick="enableEditing()">
+              <i class="fas fa-edit"></i> تعديل الصورة
+            </button>
+          </div>
+          <div class="profile-info">
+            <h3>د. أحمد محمد</h3>
+            <p class="specialty">أخصائي نطق وتخاطب</p>
+            <div class="profile-stats">
+              <div class="stat-item">
+                <i class="fas fa-calendar-alt"></i>
+                <span>مسجل منذ: يناير 2020</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-star"></i>
+                <span>التقييم: 4.9/5</span>
+              </div>
+              <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span>المرضى: 42</span>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Editable Profile Form -->
+  <form id="profileForm" class="profile-form" style="display: none;">
+    <div class="form-row">
+      <div class="form-group">
+        <label>صورة الملف الشخصي</label>
+        <div class="image-upload-container">
+          <div class="image-preview">
+            <img id="profileImagePreview" src="specialist.jpg" alt="صورة الأخصائي">
+          </div>
+          <div class="upload-controls">
+            <label for="profileImageUpload" class="upload-btn">
+              <i class="fas fa-camera"></i> تعديل المعلومات
+            </label>
+            <input type="file" id="profileImageUpload" accept="image/*" style="display: none;">
+            <button type="button" class="remove-btn" onclick="removeProfileImage()">
+              <i class="fas fa-trash"></i> إزالة
+            </button>
+          </div>
+          <small>الأبعاد الموصى بها: 500×500 بكسل (JPEG أو PNG)</small>
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-row">
+      <div class="form-group">
+        <label for="fullName">الاسم الكامل</label>
+        <input type="text" id="fullName" value="د. أحمد محمد" required>
+      </div>
+      <div class="form-group">
+        <label for="specialty">التخصص</label>
+        <input type="text" id="specialty" value="أخصائي نطق وتخاطب" required>
+      </div>
+    </div>
+  
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">البريد الإلكتروني</label>
+        <input type="email" id="email" value="ahmed@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">رقم الهاتف</label>
+        <input type="tel" id="phone" value="+966501234567" required>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="bio">نبذة عني</label>
+      <textarea id="bio" required>أخصائي نطق وتخاطب معتمد، حاصل على درجة الدكتوراه في اضطرابات النطق واللغة، خبرة أكثر من 8 سنوات في علاج حالات التأتأة وتأخر النطق عند الأطفال.</textarea>
+    </div>
+  
+    <div class="form-group">
+      <label for="experience">سنوات الخبرة</label>
+      <input type="number" id="experience" value="8" min="0" required>
+    </div>
+  
+    <div class="form-actions">
+      <button type="button" class="btn btn-outline" onclick="cancelEditing()">إلغاء</button>
+      <button type="submit" class="btn btn-primary">حفظ التغييرات</button>
+    </div>
+  </form>
+  
+    <!-- Professional Information Section -->
+    <div class="section-container">
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> المعلومات المهنية</h2>
+      
+      <div class="professional-info">
+        <div class="info-card">
+          <h4><i class="fas fa-graduation-cap"></i> المؤهلات العلمية</h4>
+          <ul class="info-list" id="qualificationsList">
+            <li>
+              <span>دكتوراه في اضطرابات النطق واللغة - جامعة الملك سعود 2019</span>
+              <div class="info-item-actions">
+                <button onclick="editQualification(this)"><i class="fas fa-edit"></i></button>
+                <button onclick="removeQualification(this)"><i class="fas fa-trash"></i></button>
+              </div>
+            </li>
+            <li>
+              <span>ماجستير في التخاطب - جامعة القاهرة 2015</span>
+              <div class="info-item-actions">
+                <button onclick="editQualification(this)"><i class="fas fa-edit"></i></button>
+                <button onclick="removeQualification(this)"><i class="fas fa-trash"></i></button>
+              </div>
+            </li>
+            <li>
+              <span>بكالوريوس التربية الخاصة - جامعة المنصورة 2011</span>
+              <div class="info-item-actions">
+                <button onclick="editQualification(this)"><i class="fas fa-edit"></i></button>
+                <button onclick="removeQualification(this)"><i class="fas fa-trash"></i></button>
+              </div>
+            </li>
+          </ul>
+          <button class="add-btn" onclick="openAddModal('qualification')">
+            <i class="fas fa-plus"></i> إضافة مؤهل
+          </button>
+        </div>
+  
+        <div class="info-card">
+          <h4><i class="fas fa-award"></i> الشهادات والدورات</h4>
+          <ul class="info-list" id="certificationsList">
+            <li>
+              <span>شهادة معالج نطق معتمد (CCC-SLP) 2020</span>
+              <div class="info-item-actions">
+                <button onclick="editCertification(this)"><i class="fas fa-edit"></i></button>
+                <button onclick="removeCertification(this)"><i class="fas fa-trash"></i></button>
+              </div>
+            </li>
+            <li>
+              <span>دورة متقدمة في علاج التأتأة - لندن 2018</span>
+              <div class="info-item-actions">
+                <button onclick="editCertification(this)"><i class="fas fa-edit"></i></button>
+                <button onclick="removeCertification(this)"><i class="fas fa-trash"></i></button>
+              </div>
+            </li>
+            <li>
+              <span>دورة اضطرابات الصوت - دبي 2017</span>
+              <div class="info-item-actions">
+                <button onclick="editCertification(this)"><i class="fas fa-edit"></i></button>
+                <button onclick="removeCertification(this)"><i class="fas fa-trash"></i></button>
+              </div>
+            </li>
+          </ul>
+          <button class="add-btn" onclick="openAddModal('certification')">
+            <i class="fas fa-plus"></i> إضافة شهادة
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Account Settings Section -->
+    <div class="section-container">
+      <h2 class="section-title"><i class="fas fa-cog"></i> إعدادات الحساب</h2>
+      
+      <form class="settings-form" id="settingsForm">
+        <div class="form-group">
+          <label>تغيير كلمة المرور</label>
+          <div class="password-fields">
+            <input type="password" placeholder="كلمة المرور الحالية" required>
+            <input type="password" placeholder="كلمة المرور الجديدة" required minlength="8">
+            <input type="password" placeholder="تأكيد كلمة المرور الجديدة" required>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">حفظ الإعدادات</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Add Qualification/Certification Modal -->
+  <div class="modal" id="addModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle"><i class="fas fa-plus"></i> إضافة مؤهل</h2>
+        <button class="close-btn" onclick="closeModal()">&times;</button>
+      </div>
+      <form id="addForm">
+        <div class="form-group">
+          <label for="itemTitle">العنوان</label>
+          <input type="text" id="itemTitle" required>
+        </div>
+        <div class="form-group">
+          <label for="itemDescription">الوصف</label>
+          <textarea id="itemDescription" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="itemYear">السنة</label>
+          <input type="number" id="itemYear" min="1900" max="2099" required>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline" onclick="closeModal()">إلغاء</button>
+          <button type="submit" class="btn btn-primary">حفظ</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="../script/profile.js"></script>
+</body>
+</html>

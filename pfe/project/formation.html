@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الدورات التدريبية - نطقنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/formation.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="نطقنا">
+    </div>
+    
+    <ul class="nav-main">
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="#courses"><i class="fas fa-dumbbell"></i> دورات</a></li>
+      <li><a href="#exercises"><i class="fas fa-book-open"></i> تمارين</a></li>
+    </ul>
+    
+    <div class="profile" onclick="toggleSidebar()">
+      <img src="../images/specialist.png" alt="الأخصائي">
+      <span>د. أحمد محمد<i class="fas fa-chevron-down toggle-sidebar"></i></span>
+    </div>
+  </nav>
+
+  <!-- الشريط الجانبي -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../images/specialist.png" alt="الأخصائي">
+      <div>
+        <h3>د. أحمد محمد</h3>
+        <p>أخصائي نطق وتخاطب</p>
+      </div>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="profile.html"><i class="fas fa-user"></i> ملف شخصي</a></li>
+      <li><a href="createmyprofile.html"><i class="fas fa-file-alt"></i> إنشاء ملفي</a></li>
+      <li><a href="old-files.html"><i class="fas fa-child"></i> ملفات الطفل القديمة</a></li>
+      <li><a href="reponse.html"><i class="fas fa-comment-medical"></i> الرد على الاستشارات</a></li>
+      <li><a href="sessions.html"><i class="fas fa-calendar-check"></i> جلسات المحجوزة</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+    </ul>
+  </div>
+  
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title"><i class="fas fa-book-open"></i> الدورات التدريبية</h2>
+      <button class="add-btn" id="openModalBtn">
+        <i class="fas fa-plus"></i> إضافة دورة جديدة
+      </button>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filters-container">
+      <div class="filter-group">
+        <label for="instructorFilter">المدرب</label>
+        <select id="instructorFilter">
+          <option value="all">جميع المدربين</option>
+          <option value="1">د. أحمد محمد</option>
+          <option value="2">د. سارة عبدالله</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="categoryFilter">التصنيف</label>
+        <select id="categoryFilter">
+          <option value="all">جميع التصنيفات</option>
+          <option value="pronunciation">النطق</option>
+          <option value="language">تطور اللغة</option>
+          <option value="communication">التواصل</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="statusFilter">الحالة</label>
+        <select id="statusFilter">
+          <option value="all">الكل</option>
+          <option value="active">نشط</option>
+          <option value="inactive">غير نشط</option>
+        </select>
+      </div>
+      
+      <div class="filter-group">
+        <label for="searchInput">بحث</label>
+        <input type="text" id="searchInput" placeholder="ابحث عن دورة...">
+      </div>
+    </div>
+
+    <!-- Courses List -->
+    <div class="course-cards" id="coursesContainer">
+      <!-- Sample Course Cards -->
+      <div class="course-card">
+        <div class="course-card-media">
+          <img src="https://via.placeholder.com/400x200?text=Course+Image" alt="Course Image">
+          <div class="course-card-play">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">دورة تحسين النطق للأطفال</h3>
+          <p class="course-card-description">دورة متخصصة لتحسين النطق لدى الأطفال الذين يعانون من صعوبات في نطق بعض الحروف والكلمات.</p>
+          <div class="course-card-meta">
+            <span>د. أحمد محمد</span>
+            <span class="course-card-duration">
+              <i class="far fa-clock"></i> 4 أسابيع
+            </span>
+          </div>
+          <div class="course-card-actions">
+            <button class="action-btn view">
+              <i class="fas fa-eye"></i> عرض
+            </button>
+            <button class="action-btn edit">
+              <i class="fas fa-edit"></i> تعديل
+            </button>
+            <button class="action-btn delete">
+              <i class="fas fa-trash"></i> حذف
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="course-card">
+        <div class="course-card-media">
+          <video poster="https://via.placeholder.com/400x200?text=Course+Video">
+            <source src="#" type="video/mp4">
+          </video>
+          <div class="course-card-play">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">تطور اللغة عند الأطفال</h3>
+          <p class="course-card-description">دورة شاملة لتعزيز تطور اللغة ومهارات التواصل عند الأطفال في المراحل العمرية المختلفة.</p>
+          <div class="course-card-meta">
+            <span>د. سارة عبدالله</span>
+            <span class="course-card-duration">
+              <i class="far fa-clock"></i> 6 أسابيع
+            </span>
+          </div>
+          <div class="course-card-actions">
+            <button class="action-btn view">
+              <i class="fas fa-eye"></i> عرض
+            </button>
+            <button class="action-btn edit">
+              <i class="fas fa-edit"></i> تعديل
+            </button>
+            <button class="action-btn delete">
+              <i class="fas fa-trash"></i> حذف
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="course-card">
+        <div class="course-card-media">
+          <img src="https://via.placeholder.com/400x200?text=Another+Course" alt="Course Image">
+          <div class="course-card-play">
+            <i class="fas fa-play"></i>
+          </div>
+        </div>
+        <div class="course-card-body">
+          <h3 class="course-card-title">تحسين التواصل الاجتماعي</h3>
+          <p class="course-card-description">تمارين وأنشطة لتحسين مهارات التواصل الاجتماعي والتفاعل مع الآخرين للأطفال الذين يعانون من صعوبات في هذا الجانب.</p>
+          <div class="course-card-meta">
+            <span>د. أحمد محمد</span>
+            <span class="course-card-duration">
+              <i class="far fa-clock"></i> 8 أسابيع
+            </span>
+          </div>
+          <div class="course-card-actions">
+            <button class="action-btn view">
+              <i class="fas fa-eye"></i> عرض
+            </button>
+            <button class="action-btn edit">
+              <i class="fas fa-edit"></i> تعديل
+            </button>
+            <button class="action-btn delete">
+              <i class="fas fa-trash"></i> حذف
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Course Modal -->
+  <div class="modal" id="courseModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fas fa-book-open"></i> إضافة دورة جديدة</h3>
+        <button class="close-btn" id="closeModalBtn">&times;</button>
+      </div>
+      
+      <form id="courseForm">
+        <div class="form-group">
+          <label for="courseTitle">عنوان الدورة *</label>
+          <input type="text" id="courseTitle" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="courseCategory">تصنيف الدورة *</label>
+          <select id="courseCategory" required>
+            <option value="">اختر تصنيفاً</option>
+            <option value="pronunciation">النطق</option>
+            <option value="language">تطور اللغة</option>
+            <option value="communication">التواصل</option>
+            <option value="interaction">التفاعل الاجتماعي</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="courseDescription">وصف الدورة *</label>
+          <textarea id="courseDescription" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="courseDuration">المدة الزمنية</label>
+          <input type="text" id="courseDuration" placeholder="مثال: 4 أسابيع">
+        </div>
+        
+        <div class="form-group">
+          <label for="courseProgram">برنامج الدورة *</label>
+          <textarea id="courseProgram" required placeholder="أدخل تفاصيل البرنامج التعليمي للدورة"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>فيديو الدورة *</label>
+          <div class="file-upload" id="videoUploadArea">
+            <i class="fas fa-video"></i>
+            <p>انقر لرفع فيديو الدورة</p>
+            <p style="font-size: 0.8rem; color: #666;">يجب أن يكون الفيديو بصيغة MP4 وحجمه لا يتجاوز 50MB</p>
+            <input type="file" id="videoInput" style="display: none;" accept=".mp4">
+          </div>
+          <div id="videoPreviewContainer"></div>
+        </div>
+        
+        <div class="form-group">
+          <label>مرفقات الدورة (اختياري)</label>
+          <div class="file-upload" id="fileUploadArea">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p>اسحب وأسقط الملفات هنا أو انقر للاختيار</p>
+            <p style="font-size: 0.8rem; color: #666;">يمكنك رفع: صور (JPG, PNG)، ملفات (PDF)</p>
+            <input type="file" id="fileInput" multiple style="display: none;" 
+                   accept=".jpg,.jpeg,.png,.pdf">
+          </div>
+          <div class="file-preview" id="filePreview"></div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> حفظ الدورة
+          </button>
+          <button type="button" class="btn btn-outline" id="cancelBtn">
+            <i class="fas fa-times"></i> إلغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Course Modal -->
+  <div class="modal" id="editCourseModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title"><i class="fas fa-edit"></i> تعديل الدورة</h3>
+        <button class="close-btn" id="closeEditModalBtn">&times;</button>
+      </div>
+      
+      <form id="editCourseForm">
+        <input type="hidden" id="editCourseId">
+        
+        <div class="form-group">
+          <label for="editCourseTitle">عنوان الدورة *</label>
+          <input type="text" id="editCourseTitle" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="editCourseCategory">تصنيف الدورة *</label>
+          <select id="editCourseCategory" required>
+            <option value="">اختر تصنيفاً</option>
+            <option value="pronunciation">النطق</option>
+            <option value="language">تطور اللغة</option>
+            <option value="communication">التواصل</option>
+            <option value="interaction">التفاعل الاجتماعي</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="editCourseDescription">وصف الدورة *</label>
+          <textarea id="editCourseDescription" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="editCourseProgram">برنامج الدورة *</label>
+          <textarea id="editCourseProgram" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="editCourseDuration">المدة الزمنية</label>
+          <input type="text" id="editCourseDuration" placeholder="مثال: 4 أسابيع">
+        </div>
+        
+        <div class="form-group">
+          <label>حالة الدورة</label>
+          <select id="editCourseStatus">
+            <option value="active">نشط</option>
+            <option value="inactive">غير نشط</option>
+          </select>
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-save"></i> حفظ التغييرات
+          </button>
+          <button type="button" class="btn btn-outline" id="cancelEditBtn">
+            <i class="fas fa-times"></i> إلغاء
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="confirmation-modal" id="deleteConfirmationModal">
+    <div class="confirmation-content">
+      <h3><i class="fas fa-exclamation-triangle"></i> تأكيد الحذف</h3>
+      <p>هل أنت متأكد أنك تريد حذف هذه الدورة؟ لا يمكن التراجع عن هذه العملية.</p>
+      <div class="confirmation-buttons">
+        <button class="btn btn-primary" id="confirmDeleteBtn">نعم، احذف</button>
+        <button class="btn btn-outline" id="cancelDeleteBtn">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Course Details Modal -->
+  <div class="course-details-modal" id="courseDetailsModal">
+    <div class="course-details-content">
+      <button class="close-details-btn" id="closeDetailsBtn">&times;</button>
+      
+      <div class="course-details-header">
+        <h2 class="course-details-title" id="detailsCourseTitle">دورة تحسين النطق للأطفال</h2>
+        <div class="course-details-meta">
+          <span id="detailsCourseInstructor">د. أحمد محمد</span>
+          <span id="detailsCourseDuration">4 أسابيع</span>
+          <span id="detailsCourseCategory">النطق</span>
+        </div>
+      </div>
+      
+      <div class="course-video-container">
+        <video class="course-video" id="courseVideoPlayer" controls>
+          <source src="#" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      
+      <div class="course-description">
+        <h3 class="program-title">وصف الدورة</h3>
+        <p class="program-content" id="detailsCourseDescription">
+          دورة متخصصة لتحسين النطق لدى الأطفال الذين يعانون من صعوبات في نطق بعض الحروف والكلمات. 
+          هذه الدورة مصممة خصيصاً للأطفال الذين تتراوح أعمارهم بين 4 إلى 10 سنوات والذين يواجهون 
+          صعوبات في نطق الحروف مثل الراء، السين، الجيم وغيرها من الحروف التي تحتاج إلى تدريب خاص.
+        </p>
+      </div>
+      
+      <div class="course-program">
+        <h3 class="program-title">برنامج الدورة</h3>
+        <p class="program-content" id="detailsCourseProgram">
+          الأسبوع الأول: تقييم مستوى النطق وتحديد الحروف التي تحتاج إلى تحسين
+          - جلسة تقييم أولية
+          - تمارين إحماء للفم واللسان
+          - تحديد الحروف المستهدفة
+          
+          الأسبوع الثاني: تمارين نطق الحروف الفردية
+          - تمرينات لحرف الراء
+          - تمرينات لحرف السين
+          - تمرينات لحرف الجيم
+          - تمارين يومية لمدة 15 دقيقة
+          
+          الأسبوع الثالث: دمج الحروف في كلمات قصيرة
+          - تكوين كلمات من الحروف المستهدفة
+          - تمارين لفظ الكلمات
+          - ألعاب تفاعلية لتحسين النطق
+          
+          الأسبوع الرابع: تطبيق عملي في جمل قصيرة
+          - تكوين جمل بسيطة
+          - محادثات قصيرة
+          - تقييم نهائي وتقديم التوصيات
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="../script/formation.js"></script>
+
+</body>
+</html>

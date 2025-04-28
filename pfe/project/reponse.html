@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الرد على الاستشارات - نطقنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/reponse.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="../images/logo.png" alt="نطقنا">
+    </div>
+    
+    <ul class="nav-main">
+      <li><a href="#main"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="#courses"><i class="fas fa-dumbbell"></i> دورات</a></li>
+      <li><a href="#exercises"><i class="fas fa-book-open"></i> تمارين</a></li>
+    </ul>
+    
+    <div class="profile" onclick="toggleSidebar()">
+      <img src="specialist.jpg" alt="الأخصائي">
+      <span>د. أحمد محمد<i class="fas fa-chevron-down toggle-sidebar"></i></span>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="specialist.jpg" alt="الأخصائي">
+      <div>
+        <h3 style="margin:0">د. أحمد محمد</h3>
+        <p style="margin:5px 0 0; color:#666">أخصائي نطق وتخاطب</p>
+      </div>
+    </div>
+    
+    <ul class="sidebar-menu">
+      <li><a href="profile.html"><i class="fas fa-user"></i> ملف شخصي</a></li>
+      <li><a href="createmyprofile.html"><i class="fas fa-file-alt"></i> إنشاء ملفي</a></li>
+      <li><a href="old-files.html"><i class="fas fa-child"></i> ملفات الطفل القديمة</a></li>
+      <li><a href="reponse.html"><i class="fas fa-comment-medical"></i> الرد على الاستشارات</a></li>
+      <li><a href="sessions.html"><i class="fas fa-calendar-check"></i> جلسات المحجوزة</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+    </ul>
+  </div>
+
+  
+  <div class="container" id="main">
+    <div class="page-header">
+      <h1><i class="fas fa-comment-medical"></i> الرد على الاستشارات اليومية</h1>
+    </div>
+    
+    <div class="consultation-tabs">
+      <button class="tab-btn active" onclick="filterConsultations('all')">الكل</button>
+      <button class="tab-btn" onclick="filterConsultations('pending')">في انتظار الرد</button>
+      <button class="tab-btn" onclick="filterConsultations('replied')">تم الرد</button>
+    </div>
+    
+    <div class="consultations-container">
+      <!-- Consultation 1 -->
+      <div class="consultation-card" data-status="pending">
+        <div class="consultation-header">
+          <div class="consultation-user">
+            <img src="parent1.jpg" alt="والد محمد">
+            <div>
+              <h4>والد محمد</h4>
+              <span class="consultation-date">15 مايو 2023</span>
+            </div>
+          </div>
+          <span class="consultation-status status-pending">في انتظار الرد</span>
+        </div>
+        <div class="consultation-content">
+          <p>ابني عمره 4 سنوات ولديه صعوبة في نطق بعض الحروف مثل السين والراء. حاولت معه في المنزل ولكن دون جدوى. ما هي التمارين التي تنصحني بها لمساعدته؟ وهل يحتاج إلى جلسات علاج نطق؟</p>
+        </div>
+        <div class="consultation-actions">
+          <button class="action-btn reply" onclick="openReplyModal()"><i class="fas fa-reply"></i> رد</button>
+          <button class="action-btn view" onclick="openConsultationModal()"><i class="fas fa-eye"></i> عرض</button>
+        </div>
+      </div>
+      
+      <!-- Consultation 2 -->
+      <div class="consultation-card" data-status="replied">
+        <div class="consultation-header">
+          <div class="consultation-user">
+            <img src="parent2.jpg" alt="والدة سارة">
+            <div>
+              <h4>والدة سارة</h4>
+              <span class="consultation-date">10 مايو 2023</span>
+            </div>
+          </div>
+          <span class="consultation-status status-replied">تم الرد</span>
+        </div>
+        <div class="consultation-content">
+          <p>ابنتي تبلغ من العمر 5 سنوات وتتأتئ عند التحدث، خاصة عندما تكون متحمسة أو متوترة. هل هذه حالة طبيعية في هذا العمر أم أنها تحتاج إلى تدخل علاجي؟</p>
+        </div>
+        <div class="consultation-actions">
+          <button class="action-btn reply" onclick="openReplyModal()"><i class="fas fa-reply"></i> عرض الرد</button>
+          <button class="action-btn view" onclick="openConsultationModal()"><i class="fas fa-eye"></i> عرض</button>
+        </div>
+      </div>
+      
+      <!-- Consultation 3 -->
+      <div class="consultation-card" data-status="pending">
+        <div class="consultation-header">
+          <div class="consultation-user">
+            <img src="parent3.jpg" alt="والد يوسف">
+            <div>
+              <h4>والد يوسف</h4>
+              <span class="consultation-date">8 مايو 2023</span>
+            </div>
+          </div>
+          <span class="consultation-status status-pending">في انتظار الرد</span>
+        </div>
+        <div class="consultation-content">
+          <p>طفلي عمره 3 سنوات ونصف ولا يتكلم إلا بضع كلمات بسيطة مثل "ماما" و"بابا". أقرانه في نفس العمر يتكلمون جملًا كاملة. هل هذا طبيعي أم أنه يعاني من تأخر لغوي؟</p>
+        </div>
+        <div class="consultation-actions">
+          <button class="action-btn reply" onclick="openReplyModal()"><i class="fas fa-reply"></i> رد</button>
+          <button class="action-btn view" onclick="openConsultationModal()"><i class="fas fa-eye"></i> عرض</button>
+        </div>
+      </div>
+      
+      <!-- Consultation 4 -->
+      <div class="consultation-card" data-status="replied">
+        <div class="consultation-header">
+          <div class="consultation-user">
+            <img src="parent4.jpg" alt="والدة نور">
+            <div>
+              <h4>والدة نور</h4>
+              <span class="consultation-date">2 مايو 2023</span>
+            </div>
+          </div>
+          <span class="consultation-status status-replied">تم الرد</span>
+        </div>
+        <div class="consultation-content">
+          <p>ابنتي تبلغ 6 سنوات وتعاني من صعوبة في القراءة والتهجئة. لاحظت أنها تخلط بين بعض الحروف المتشابهة. هل هذا مرتبط بمشكلة في النطق أم أنه شيء آخر؟</p>
+        </div>
+        <div class="consultation-actions">
+          <button class="action-btn reply" onclick="openReplyModal()"><i class="fas fa-reply"></i> عرض الرد</button>
+          <button class="action-btn view" onclick="openConsultationModal()"><i class="fas fa-eye"></i> عرض</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reply Modal -->
+  <div class="modal" id="replyModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-reply"></i> الرد على الاستشارة</h2>
+        <button class="close-btn" onclick="closeReplyModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="consultation-details">
+          <div class="consultation-user">
+            <img src="parent1.jpg" alt="والد محمد">
+            <div>
+              <h4>والد محمد</h4>
+              <span class="consultation-date">15 مايو 2023</span>
+            </div>
+          </div>
+          
+          <div class="consultation-question">
+            <p>ابني عمره 4 سنوات ولديه صعوبة في نطق بعض الحروف مثل السين والراء. حاولت معه في المنزل ولكن دون جدوى. ما هي التمارين التي تنصحني بها لمساعدته؟ وهل يحتاج إلى جلسات علاج نطق؟</p>
+            <div class="question-meta">
+              <span>الطفل: محمد، 4 سنوات</span>
+              <span>التشخيص الأولي: صعوبات نطق</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="reply-form">
+          <div class="form-group">
+            <label for="replyText">ردك على الاستشارة:</label>
+            <textarea id="replyText" placeholder="اكتب ردك هنا..."></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button class="cancel-btn" onclick="closeReplyModal()">إلغاء</button>
+            <button class="submit-btn" onclick="submitReply()"><i class="fas fa-paper-plane"></i> إرسال الرد</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consultation Details Modal -->
+  <div class="modal" id="consultationModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2><i class="fas fa-info-circle"></i> تفاصيل الاستشارة</h2>
+        <button class="close-btn" onclick="closeConsultationModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="consultation-details">
+          <div class="consultation-user">
+            <img src="parent2.jpg" alt="والدة سارة">
+            <div>
+              <h4>والدة سارة</h4>
+              <span class="consultation-date">10 مايو 2023</span>
+            </div>
+          </div>
+          
+          <div class="consultation-question">
+            <p>ابنتي تبلغ من العمر 5 سنوات وتتأتئ عند التحدث، خاصة عندما تكون متحمسة أو متوترة. هل هذه حالة طبيعية في هذا العمر أم أنها تحتاج إلى تدخل علاجي؟</p>
+            <div class="question-meta">
+              <span>الطفل: سارة، 5 سنوات</span>
+              <span>التشخيص الأولي: تأتأة</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="consultation-reply">
+          <h3><i class="fas fa-comment-dots"></i> رد الأخصائي</h3>
+          <div class="reply-content">
+            <p>عزيزتي والدة سارة<br><br>
+            شكرًا على استفسارك. التأتأة في هذا العمر قد تكون طبيعية، ولكن من المهم مراقبتها. يمكنك البدء ببعض التمارين البسيطة مثل القراءة بصوت عالٍ مع سارة، والتحدث ببطء لتشجيعها على التحدث بشكل مريح. إذا استمرت المشكلة، يفضل استشارة أخصائي نطق.</p>
+          </div>
+          <div class="reply-meta">
+            <span>تاريخ الرد: 12 مايو 2023</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../script/reponse.js"></script>
+</body>
+</html>

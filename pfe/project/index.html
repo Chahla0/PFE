@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة الأخصائي - نطقنا</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/specialist.css">
+</head>
+<body>
+  <!-- شريط التنقل العلوي -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="images/logo.png" alt="نطقنا">
+    </div>
+    
+    <ul class="nav-main">
+      <li><a href="index.html" class="active"><i class="fas fa-home"></i> الرئيسية</a></li>
+      <li><a href="#courses"><i class="fas fa-dumbbell"></i> دورات</a></li>
+      <li><a href="#exercises"><i class="fas fa-book-open"></i> تمارين</a></li>
+    </ul>
+    
+    <div class="profile" onclick="toggleSidebar()">
+      <img src="../images/specialist.png" alt="الأخصائي">
+      <span>د. أحمد محمد<i class="fas fa-chevron-down toggle-sidebar"></i></span>
+    </div>
+  </nav>
+
+  <!-- الشريط الجانبي -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <img src="../images/specialist.png" alt="الأخصائي">
+      <div>
+        <h3>د. أحمد محمد</h3>
+        <p>أخصائي نطق وتخاطب</p>
+      </div>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="profile.html"><i class="fas fa-user"></i> ملف شخصي</a></li>
+      <li><a href="createmyprofile.html"><i class="fas fa-file-alt"></i> إنشاء ملفي</a></li>
+      <li><a href="old-files.html"><i class="fas fa-child"></i> ملفات الطفل القديمة</a></li>
+      <li><a href="reponse.html"><i class="fas fa-comment-medical"></i> الرد على الاستشارات</a></li>
+      <li><a href="sessions.html"><i class="fas fa-calendar-check"></i> جلسات المحجوزة</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+    </ul>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container" id="main">
+    <!-- Welcome Section -->
+    <div class="welcome-section card-3d">
+      <div class="welcome-text">
+        <h1>مرحبًا بك د. أحمد 👋</h1>
+        <p>نتمنى لك يومًا مثمرًا مع مرضاك</p>
+      </div>
+      <div class="welcome-image">
+        <img src="../images/specialist.png" alt="جلسة علاج نطق" class="card-3d">
+      </div>
+    </div>
+    
+    <!-- Overview Section -->
+    <div class="section-container card-3d">
+      <h2 class="section-title"><i class="fas fa-chart-pie"></i> نظرة عامة</h2>
+      <div class="overview-cards">
+        <div class="overview-card card-3d">
+          <h3>12</h3>
+          <p>المرضى النشطين</p>
+        </div>
+        <div class="overview-card card-3d">
+          <h3>5</h3>
+          <p>جلسات اليوم</p>
+        </div>
+        <div class="overview-card card-3d">
+          <h3>85%</h3>
+          <p>نسبة الإشغال</p>
+        </div>
+        <div class="overview-card card-3d">
+          <h3>3</h3>
+          <p>رسائل جديدة</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Courses Section -->
+    <div class="section-container card-3d" id="courses">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-book-open"></i> الدورات</h2>
+        <button class="view-more-btn" onclick="window.location.href='formation.html'">
+          عرض المزيد <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <p class="section-description">استكشف الدورات المتاحة لتحسين مهاراتك في العلاج</p>
+      <div class="cards-container">
+        <div class="card card-3d">
+          <img src="../images/home.png" alt="دورة علاج التأتأة">
+          <div class="card-content">
+            <h3>دورة علاج التأتأة</h3>
+            <p>تعلم أحدث أساليب علاج التأتأة عند الأطفال</p>
+            <div class="card-footer">
+              <span class="duration"><i class="far fa-clock"></i> 8 ساعات</span>
+              <button class="more-btn">المزيد <i class="fas fa-chevron-left"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="card card-3d">
+          <img src="course2.jpg" alt="دورة تطوير اللغة">
+          <div class="card-content">
+            <h3>دورة تطوير اللغة</h3>
+            <p>طرق فعالة لتحسين المهارات اللغوية</p>
+            <div class="card-footer">
+              <span class="duration"><i class="far fa-clock"></i> 6 ساعات</span>
+              <button class="more-btn">المزيد <i class="fas fa-chevron-left"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="card card-3d">
+          <img src="course3.jpg" alt="دورة التواصل الفعال">
+          <div class="card-content">
+            <h3>دورة التواصل الفعال</h3>
+            <p>تحسين مهارات التواصل مع الأطفال</p>
+            <div class="card-footer">
+              <span class="duration"><i class="far fa-clock"></i> 5 ساعات</span>
+              <button class="more-btn">المزيد <i class="fas fa-chevron-left"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Exercises Section -->
+    <div class="section-container card-3d" id="exercises">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-dumbbell"></i> التمارين</h2>
+        <button class="view-more-btn" onclick="window.location.href='exercices.html'">
+          عرض المزيد <i class="fas fa-chevron-left"></i>
+        </button>
+      </div>
+      <p class="section-description">استعرض التمارين المتاحة لتحسين مهارات النطق</p>
+      <div class="cards-container">
+        <div class="card card-3d">
+          <img src="exercise1.jpg" alt="تمارين حرف الراء">
+          <div class="card-content">
+            <h3>تمارين حرف الراء</h3>
+            <p>مجموعة تمارين لتحسين نطق حرف الراء</p>
+            <div class="card-footer">
+              <span class="level"><i class="fas fa-signal"></i> متوسط</span>
+              <button class="more-btn">المزيد <i class="fas fa-chevron-left"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="card card-3d">
+          <img src="exercise2.jpg" alt="تمارين التنفس">
+          <div class="card-content">
+            <h3>تمارين التنفس</h3>
+            <p>تمارين لتحسين التحكم في التنفس أثناء الكلام</p>
+            <div class="card-footer">
+              <span class="level"><i class="fas fa-signal"></i> مبتدئ</span>
+              <button class="more-btn">المزيد <i class="fas fa-chevron-left"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="card card-3d">
+          <img src="exercise3.jpg" alt="تمارين اللسان">
+          <div class="card-content">
+            <h3>تمارين اللسان</h3>
+            <p>تمارين لتقوية عضلات اللسان</p>
+            <div class="card-footer">
+              <span class="level"><i class="fas fa-signal"></i> متقدم</span>
+              <button class="more-btn">المزيد <i class="fas fa-chevron-left"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<script src="../script/specialist.js"></script>
+</body>
+</html>
